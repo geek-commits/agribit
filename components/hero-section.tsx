@@ -25,7 +25,32 @@ const transitionVariants = {
             },
         },
     },
-}
+} as const
+
+const backgroundGroupVariants = {
+    container: {
+        visible: {
+            transition: {
+                delayChildren: 1,
+            },
+        },
+    },
+    item: {
+        hidden: {
+            opacity: 0,
+            y: 20,
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: 'spring',
+                bounce: 0.3,
+                duration: 2,
+            },
+        },
+    },
+} as const
 
 export default function HeroSection() {
     return (
@@ -42,30 +67,7 @@ export default function HeroSection() {
                 <section>
                     <div className="relative pt-24 md:pt-36">
                         <AnimatedGroup
-                            variants={{
-                                container: {
-                                    visible: {
-                                        transition: {
-                                            delayChildren: 1,
-                                        },
-                                    },
-                                },
-                                item: {
-                                    hidden: {
-                                        opacity: 0,
-                                        y: 20,
-                                    },
-                                    visible: {
-                                        opacity: 1,
-                                        y: 0,
-                                        transition: {
-                                            type: 'spring',
-                                            bounce: 0.3,
-                                            duration: 2,
-                                        },
-                                    },
-                                },
-                            }}
+                            variants={backgroundGroupVariants}
                             className="mask-b-from-35% mask-b-to-90% absolute inset-0 top-56 -z-20 lg:top-32">
                             <Image
                                 src="https://ik.imagekit.io/lrigu76hy/tailark/night-background.jpg?updatedAt=1745733451120"
@@ -78,7 +80,12 @@ export default function HeroSection() {
 
                         <div
                             aria-hidden
-                            className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--color-background)_75%)]"
+                            className="absolute inset-0 -z-10"
+                            style={{
+                                backgroundImage:
+                                    "radial-gradient(125% 125% at 50% 90%, #ffffff 40%, #10b981 100%)",
+                                backgroundSize: "100% 100%",
+                            }}
                         />
 
                         <div className="mx-auto max-w-7xl px-6">

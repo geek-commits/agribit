@@ -26,26 +26,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="min-h-screen w-full bg-white relative">
-          <div
-            className="absolute inset-0 z-0"
-            style={{
-              backgroundImage:
-                "radial-gradient(125% 125% at 50% 90%, #ffffff 40%, #10b981 100%)",
-              backgroundSize: "100% 100%",
-            }}
-          />
-          <ThemeProvider
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+       <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem
           forcedTheme="light"
           disableTransitionOnChange
         >
-            <div className="relative z-10">{children}</div>
-          </ThemeProvider>
-        </div>
+        {children}
+        </ThemeProvider>
       </body>
     </html>
   );

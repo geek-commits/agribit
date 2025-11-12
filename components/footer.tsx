@@ -30,8 +30,16 @@ const links = [
 
 export default function FooterSection() {
     return (
-        <footer className="py-16 md:py-32">
-            <div className="mx-auto max-w-5xl px-6">
+        <footer className="py-16 md:py-32 relative overflow-hidden">
+            <div
+                className="absolute inset-0 z-0"
+                style={{
+                    backgroundImage:
+                        "radial-gradient(125% 125% at 50% 10%, #ffffff 40%, #10b981 100%)",
+                    backgroundSize: "100% 100%",
+                }}
+            />
+            <div className="relative z-10 mx-auto max-w-5xl px-6">
                 <Link
                     href="/"
                     aria-label="go home"
