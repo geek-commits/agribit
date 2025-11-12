@@ -5,7 +5,6 @@ import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import React from 'react'
 import { cn } from '@/lib/utils'
-import { ThemeSwitcher } from './kibo-ui/theme-switcher'
 
 const menuItems = [
     { name: 'Features', href: '#features' },
@@ -78,7 +77,6 @@ export const HeroHeader = () => {
                                 </ul>
                             </div>
                             <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                                <ThemeSwitcher />
                                 <Button
                                     asChild
                                     variant="outline"
